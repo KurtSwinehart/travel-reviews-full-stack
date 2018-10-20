@@ -30,7 +30,7 @@ public class ReviewPopulator implements CommandLineRunner {
 				"Blog poke slow-carb tilde, subway tile pinterest letterpress occupy offal XOXO williamsburg"
 						+ " keytar selfies mixtape crucifix. Semiotics man bun cred deep v meh intelligentsia disrupt "
 						+ "taxidermy narwhal small batch salvia ramps. Meditation DIY gentrify woke, tumblr pug blue bottle"
-						+ " church-key. Keytar knausgaard salvia occupy gluten-free, copper mug taxidermy.",
+						+ " church-key. Keytar smithen salvia occupy gluten-free, copper mug taxidermy.",
 				"/images/cancun1.jpg", caribbean);
 		cancun = reviewRepo.save(cancun);
 
