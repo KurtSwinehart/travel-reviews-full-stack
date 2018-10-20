@@ -1,0 +1,52 @@
+#container {
+  background-color:  #939faa;
+  margin: 2rem auto;
+  max-width: 90%;
+  padding: 2rem;
+  width: 1200px;
+}
+#header {
+  display: grid; 
+  padding: none;
+  /* align-items: center;  */
+  height: 40px;
+  /* justify-content: center; */
+}
+
+#header h1 {
+  align-items: center; 
+  font-family: 'Michroma', sans-serif;
+  font-size: 30px;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-rows: 1fr 1fr 1fr;
+}
+
+body {
+  background-color: rgb(107, 152, 192);
+}
+
+body img {
+  display: block;
+    margin-left: auto;
+    margin-right: auto;
+    /* width: 50%; */
+    height: 400px;
+    width: 400px;
+  }
+
+#ReviewName {
+  font-size: 2rem;
+}
+
+#footer {
+  display: flex;
+  height: 50px;
+  padding-left: 20px;
+}
+#footer a{
+  font-size: 1.25em;
+  text-decoration: none;
+}

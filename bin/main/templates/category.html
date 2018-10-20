@@ -1,0 +1,31 @@
+<!DOCTYPE HTML>
+
+<html xmlns:th="http://thymeleaf.org">
+
+<head>
+<title>A Category</title>
+</head>
+
+<body>
+	<header>
+		<h1>A Category</h1>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="./css/category.css">
+	</header>
+		<h2 th:text="${categories.name}"></h2>
+
+	<div th:each="review: ${categories.reviews}">
+		
+		<ul>		
+		<li>
+			<a th:href="@{/review(id=${review.id})}" th:text="${review.name}"></a>
+		</li>
+		</ul>
+	</div>
+
+	<div th:each="category: ${categories}">
+		<a href="http://localhost:8080/show-categories">Back to categories</a>
+	</div>
+	
+</body>
+</html>

@@ -1,0 +1,54 @@
+#container {
+  background-color:  #939faa;
+  margin: 2rem auto;
+  max-width: 90%;
+  padding: 2rem;
+  width: 1200px;
+}
+
+#header {
+  display: grid; 
+  padding-bottom: 1.5rem;
+  /* align-items: center;  */
+  height: 40px;
+  /* justify-content: center; */
+}
+
+#header h1 {
+  align-items: center; 
+  font-family: 'Michroma', sans-serif;
+  font-size: 30px;
+  padding-left: 15px;
+ }
+
+.grid-container {
+  display: flex;
+  grid-template-columns: 1fr 1fr;
+  padding-left: 15px;
+}
+
+/* .grid-container :nth-child(1){
+  wi
+} */
+
+div li{
+  list-style-type: none;
+  padding-top: 1.2rem;
+}
+
+div li a {
+  text-decoration: none;
+}
+
+#travelPic {
+  display: block;
+    margin-left: auto;
+    margin-right: auto;
+    /* width: 50%; */
+    height: 400px;
+    width: 500px;
+  }
+
+body {
+  background-color: rgb(107, 152, 192);
+}

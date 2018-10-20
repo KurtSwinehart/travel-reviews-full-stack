@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmnls:th="http://www.thymeleaf.org">
+<head>
+	<title>A Review</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="./css/review.css">
+</head>
+<body>
+	<main id="container"> 
+	<header id="header">
+	<h1 style="font-family:verdana;">A Single Review</h1>
+</header>
+	<div class="grid-container" th:each = "review: ${reviews}">
+	<p id="ReviewName" th:text = "${review.name}"></p>
+	<p th:utext = "${review.resortOptions}"></p>
+	<p th:text = "${review.content}"></p>
+	<img th:src = "${review.image}"></img>
+<footer id="footer">
+	<a href="http://localhost:8080/show-categories">Back to Categories</a>
+</footer>
+
+
+</body>
+</html>
