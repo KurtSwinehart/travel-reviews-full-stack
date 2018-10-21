@@ -7,7 +7,7 @@
 }
 
 #header {
-  display: grid; 
+  display: flex; 
   padding-bottom: 1.5rem;
   /* align-items: center;  */
   height: 40px;

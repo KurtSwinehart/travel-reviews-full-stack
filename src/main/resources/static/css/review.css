@@ -6,7 +6,7 @@
   width: 1200px;
 }
 #header {
-  display: grid; 
+  display: flex; 
   padding: none;
   /* align-items: center;  */
   height: 40px;
