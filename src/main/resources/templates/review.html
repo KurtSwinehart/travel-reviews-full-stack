@@ -8,17 +8,21 @@
 <body>
 	<main id="container"> 
 	<header id="header">
-	<h1 style="font-family:verdana;">A Single Review</h1>
+	<h1>A Single Review</h1>
 </header>
 	<div class="grid-container" th:each = "review: ${reviews}">
 	<p id="ReviewName" th:text = "${review.name}"></p>
 	<p th:utext = "${review.resortOptions}"></p>
 	<p th:text = "${review.content}"></p>
 	<img th:src = "${review.image}"></img>
+	</div>
+	</main>
 <footer id="footer">
-	<a href="http://localhost:8080/show-categories">Back to Categories</a>
+	<ul>
+	<li> <a href="http://localhost:8080/show-categories">Back to Categories</a></li>
+	<li> <a href="http://localhost:8080/show-reviews">Show All Reviews</a></li>
+</ul>
 </footer>
-
 
 </body>
 </html>

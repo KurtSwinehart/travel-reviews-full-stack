@@ -1,24 +1,32 @@
-<!DOCTYPE HTML>
-
+<!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-
 <head>
 <title>A list of categories</title>
 	<meta charset="utf-8">
-	<link rel="stylesheet" type="text/css" href="../css/categories.css">
+	<link rel="stylesheet" type="text/css" th:href="@{./css/categories.css}">
 </head>
 
 <body>
-	<header>
-	<h1>A list of categories</h1>
+	<main id="container"> 
+	<header id="header">
+		<h1>A list of categories</h1>
 	</header>
 
-<div th:each="category: ${categories}">
-<h2>
-	<a th:href="@{/category(id=${category.id})}" th:text="${category.name}"></a>
-</h2>
+<div class="grid-container">
+	<ul>
+		<li th:each="category: ${categories}">
+		<a th:href="@{/category(id=${category.id})}" th:text="${category.name}"></a>
+	</li>
+	</ul>
+	<img id="travelPic" src ="./images/travel1.jpg">
 </div>
+</main>
 
+<footer id="footer">
+		<ul>
+		<li> <a href="http://localhost:8080/show-reviews">Show All Reviews</a></li>
+	</ul>
+	</footer>
 
 </body>
 </html>

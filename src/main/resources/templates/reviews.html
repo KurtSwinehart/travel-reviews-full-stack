@@ -11,12 +11,21 @@
 	<h1>A List of Reviews</h1>
 	</header>
 
-	<div class="grid-container" th:each="review: ${reviews}">
-		<li> 
+	<div class="grid-container">
+		<ul>
+		<li th:each="review: ${reviews}"> 
 		<a th:href="@{/review(id=${review.id})}" th:text="${review.name}"></a>
 		</li> 
+		</ul>
+		<img id="travelPic" src ="./images/travel1.jpg">
 		</div>
-	<img id="travelPic" src ="./images/travel1.jpg">
+		</main>
+		
+<footer id="footer">
+		<ul>
+		<li> <a href="http://localhost:8080/show-categories">Back to Categories</a></li>
+	</ul>
+	</footer>
 
 </body>
 </html>

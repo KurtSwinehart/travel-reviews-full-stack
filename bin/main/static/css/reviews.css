@@ -18,37 +18,60 @@
   align-items: center; 
   font-family: 'Michroma', sans-serif;
   font-size: 30px;
-  padding-left: 15px;
+  padding-left: 19px;
  }
 
 .grid-container {
-  display: flex;
+  display: grid;
   grid-template-columns: 1fr 1fr;
   padding-left: 15px;
 }
 
-/* .grid-container :nth-child(1){
-  wi
-} */
-
 div li{
   list-style-type: none;
   padding-top: 1.2rem;
+  font-size: 1.3rem;
 }
 
 div li a {
   text-decoration: none;
+  color: black;
+}
+
+div li a:hover {
+  color: white;
 }
 
 #travelPic {
   display: block;
-    margin-left: auto;
-    margin-right: auto;
-    /* width: 50%; */
+    margin-top: 2em;
     height: 400px;
     width: 500px;
   }
 
 body {
   background-color: rgb(107, 152, 192);
+}
+
+#footer {
+  display: flex;
+  height: 50px;
+  margin: 1rem auto;
+  max-width: 90%;
+  width: 1200px;
+}
+
+#footer a{
+  font-size: 1.25em;
+  text-decoration: none;
+  color: black;
+}
+
+#footer a:hover{
+  color: white;
+}
+
+#footer li {
+  text-decoration: none;
+  list-style-type: none;
 }
