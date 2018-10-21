@@ -3,7 +3,7 @@
   margin: 2rem auto;
   max-width: 90%;
   padding: 2rem;
-  width: 1500px;
+  width: 1200px;
 }
 #header {
   display: grid; 
@@ -21,6 +21,20 @@
 
 #container h2{
   font-size: 30px;
+  margin: 3rem;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding-left: 15px;
+}
+
+main img {
+    display: block;
+    margin-top: 2em;
+    height: 400px;
+    width: 500px;
 }
 
 body {

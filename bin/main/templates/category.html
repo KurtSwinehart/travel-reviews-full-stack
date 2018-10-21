@@ -11,23 +11,24 @@
 <body>
 	<main id="container"> 
 	<header id="header">
-		<h1>A Category</h1>
+		<h1 th:text="${categories.name}"></h1>
 	<meta charset="utf-8">
 	<link rel="stylesheet" type="text/css" href="./css/category.css">
 	</header>
-		<h2 th:text="${categories.name}"></h2>
+	
+	<!-- <h2 th:text="${categories.name}"></h2> -->
 	
 
-	<div>
+	<div class="grid-container">
 		
 		<ul>		
 		<li th:each="review: ${categories.reviews}">
 			<a th:href="@{/review(id=${review.id})}" th:text="${review.name}"></a>
 		</li>
 		</ul>
-		<img th: src ="${categories.image}">
-
-	</div>
+		
+		<img th:src ="${categories.image}">
+	</div> 
 
 	<!-- <div th:each="category: ${categories}">
 		<a href="http://localhost:8080/show-categories">Back to categories</a>
