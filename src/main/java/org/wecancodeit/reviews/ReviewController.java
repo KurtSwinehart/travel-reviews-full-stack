@@ -15,6 +15,12 @@ public class ReviewController {
 	@Resource
 	ReviewRepository reviewRepo;
 
+	@Resource
+	CategoryRepository categoryRepo;
+
+//	@Resource
+//	CommentRepository commentRepo;
+
 	@RequestMapping("/show-reviews")
 	public String findAllReviews(Model model) {
 		model.addAttribute("reviews", reviewRepo.findAll());
@@ -27,5 +33,13 @@ public class ReviewController {
 		model.addAttribute("reviews", review.get());
 		return "review";
 	}
+
+//	@RequestMapping("/review/add-comment")
+//	public String addComment(String title, String description) {
+//		Optional<Comment> comment = commentRepo.findById(id);
+//		model.addAttribute("reviews", review.get());
+//		reviewRepo.save("review");
+//		return "review";
+//	}
 
 }

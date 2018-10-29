@@ -16,6 +16,24 @@
 	<p th:text = "${review.content}"></p>
 	<img th:src = "${review.image}"></img>
 	</div>
+	
+	<form method="POST">
+	<div>
+		<label>Enter Comment Title:</label>
+		<input type="text" name="commentTitle" />
+	</div>
+	
+	 <div>
+		<label>Enter Comment Description:</label>
+		<input type="text" name="commentDescription" />
+	   </div>
+	   	    
+	    <div>
+	   <button th:formaction="@{add-comment}"> add comment</button>
+	   </div>
+	   
+	   </form>
+	
 	</main>
 <footer id="footer">
 	<ul>

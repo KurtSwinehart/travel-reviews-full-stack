@@ -25,6 +25,9 @@ public class Review {
 	@ManyToOne
 	private Category category;
 
+//	@OneToMany(mappedBy = "review")
+//	private Collection<Comment> comments;
+
 	public Long getId() {
 		return id;
 	}

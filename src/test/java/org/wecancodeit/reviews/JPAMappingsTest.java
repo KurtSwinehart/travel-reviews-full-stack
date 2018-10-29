@@ -77,4 +77,15 @@ public class JPAMappingsTest {
 		assertThat(resultReview1.getCategory().getName(), is("Caribbean"));
 		assertThat(resultCategory.getReviews(), containsInAnyOrder(resultReview1, resultReview2));
 	}
+
+//	@Test
+//	public void shouldBeAbleToCreateTagsWithinReviews() {
+//
+//	}
+
+	@Test
+	public void shouldBeAbleToCommentOnIndividualReview() {
+
+	}
+
 }
