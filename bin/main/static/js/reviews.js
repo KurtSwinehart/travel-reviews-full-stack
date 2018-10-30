@@ -15,8 +15,8 @@ xhr.onreadystatechange = function() {
 			const description = document.createElement('p')
 			description.innerText = review.description
 
-			const topics = [];
-			course.categoriesUrls.forEach(categoryUrl => {
+			const categories = [];
+			review.categoriesUrls.forEach(categoryUrl => {
 				const categoryUrlElement = document.createElement('li')
 				categoryUrlElement.innerHTML = `review topics: <a href="${categoryUrl}">${categoryUrl}</a>`
 				categories.push(categoryUrlElement)
