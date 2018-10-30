@@ -20,10 +20,16 @@ import org.springframework.test.context.junit4.SpringRunner;
 public class JPAMappingsTest {
 
 	@Resource
-	CategoryRepository categoryRepo;
+	private CategoryRepository categoryRepo;
 
 	@Resource
-	ReviewRepository reviewRepo;
+	private ReviewRepository reviewRepo;
+
+	@Resource
+	private TagRepository tagRepo;
+
+	@Resource
+	private CommentRepository commentRepo;
 
 	@Resource
 	EntityManager entityManager;
@@ -44,7 +50,7 @@ public class JPAMappingsTest {
 
 	@Test
 	public void shouldSaveAndLoadIndividualReview() {
-		Review review = reviewRepo.save(new Review("Cancun", "Cancun resort options", "content", "image", null));
+		Review review = reviewRepo.save(new Review("Cancun", "Cancun resort options", "content", "image", null, null));
 		long reviewId = review.getId();
 
 		entityManager.flush();
@@ -59,8 +65,10 @@ public class JPAMappingsTest {
 	@Test
 	public void shouldEstablishRelationshipBetweenCategoryAndReview() {
 		Category category = categoryRepo.save(new Category("Caribbean", "Caribbean vacation spots"));
-		Review review1 = reviewRepo.save(new Review("Cancun", "Cancun resort options", "content", "image", category));
-		Review review2 = reviewRepo.save(new Review("Jamaica", "Jamaica resort options", "content", "image", category));
+		Review review1 = reviewRepo
+				.save(new Review("Cancun", "Cancun resort options", "content", "image", category, null));
+		Review review2 = reviewRepo
+				.save(new Review("Jamaica", "Jamaica resort options", "content", "image", category, null));
 		long categoryId = category.getId();
 		long reviewId1 = review1.getId();
 		long reviewId2 = review2.getId();
@@ -77,4 +85,46 @@ public class JPAMappingsTest {
 		assertThat(resultReview1.getCategory().getName(), is("Caribbean"));
 		assertThat(resultCategory.getReviews(), containsInAnyOrder(resultReview1, resultReview2));
 	}
+
+	@Test
+	public void shouldHaveTwoCommentsOnOneReview() {
+		Category caribbean = new Category("Caribbean", null);
+		Tag beach = new Tag("Beach");
+		caribbean = categoryRepo.save(caribbean);
+		beach = tagRepo.save(beach);
+		Review review = new Review("Test Review", "Stuff about review", "content", "image", caribbean, beach);
+		review = reviewRepo.save(review);
+		long reviewId = review.getId();
+
+		Comment testComment1 = new Comment("Author", review, "Comment1");
+		testComment1 = commentRepo.save(testComment1);
+		long testComment1Id = testComment1.getId();
+
+		Comment testComment2 = new Comment("Author2", review, "Comment2");
+		testComment2 = commentRepo.save(testComment2);
+		long testComment2Id = testComment2.getId();
+
+		entityManager.flush();
+		entityManager.clear();
+
+		Iterable<Comment> comments = commentRepo.findAll();
+		assertThat(comments, containsInAnyOrder(testComment1, testComment2));
+
+		Optional<Comment> testComment1Result = commentRepo.findById(testComment1Id);
+		testComment1 = testComment1Result.get();
+
+		Optional<Comment> testComment2Result = commentRepo.findById(testComment2Id);
+		testComment2 = testComment2Result.get();
+
+		Optional<Review> reviewResult = reviewRepo.findById(reviewId);
+		review = reviewResult.get();
+
+		assertThat(testComment1.getAuthor(), is("Author"));
+		assertThat(testComment2.getAuthor(), is("Author2"));
+		assertThat(testComment1.getReview(), is(review));
+		assertThat(testComment2.getReview(), is(review));
+		assertThat(review.getComments(), containsInAnyOrder(testComment1, testComment2));
+
+	}
+
 }

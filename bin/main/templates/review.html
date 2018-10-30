@@ -10,11 +10,58 @@
 	<header id="header">
 	<h1>Check Out This Review</h1>
 </header>
-	<div class="grid-container" th:each = "review: ${reviews}">
+
+<!-- about minute 30 or so of Mod9 video if needing to create multiple divs below-->	
+<div class="grid-container" th:each = "review: ${reviews}">
 	<p id="ReviewName" th:text = "${review.name}"></p>
 	<p th:utext = "${review.resortOptions}"></p>
 	<p th:text = "${review.content}"></p>
 	<img th:src = "${review.image}"></img>
+	
+	<h3>Current Tags associated with this review</h3>
+	<div th:each="tag: ${review.tags}">
+		<a th:href="@{/tag(id=${tag.id})}" th:text="${tag.description}"></a>
+	</div>
+	
+	<form method="POST">
+		<input name="reviewId" type="hidden" th:value=${review.id}"/>
+		<input type="text" name="tagName"/>
+		<button th:formaction="@{/add-tag}">add tag with HTML forms</button>
+	</form>
+	
+	<form method="POST">
+		<input name="reviewId" type="hidden" th:value=${review.id}"/>
+		<ul>
+			<li th:each="tag: ${review.tags}"><span th:text=${tag.description}"></span>	
+			<button id="x" name="tagId" th:value=${tag.id}" th:formaction="@{remove-tag-button}">&times;</button>	
+		</ul>
+	</form>
+	
+	
+	<div class="add-comment">
+		<form method="POST">
+		<section>
+			<label>Enter your name: </label>
+			<input type="text" name="author"/>
+		</section>
+		<section>
+			<label>What do you think of this review?</label>
+				<input type="text" name="content"/>
+		</section>
+		<section>
+			<input type="hidden" th:value="${reviewsModel.id}" name="reviewId"/>
+		</section>
+		<section>
+			<button th:formaction = "@{/add-comment}">Add Comment</button>
+		</section>
+		</form>
+		
+		<div th:each="comment: ${reivewsModel.comments}">
+			<h5><span th:text="${comment.author}">Commenter</span> says...</h5>
+			<p th:text="${comment.content}"></p>
+		</div>
+		
+	</div>
 	</div>
 	</main>
 <footer id="footer">
