@@ -29,7 +29,6 @@ public class Review {
 	@Lob
 	private String content;
 	private String image;
-	private Tag tag;
 
 	@JsonIgnore
 	@ManyToOne
@@ -67,9 +66,8 @@ public class Review {
 		return category;
 	}
 
-	// ?? not sure if this part is correct
-	public Tag getTags() {
-		return tag;
+	public Collection<Tag> getTags() {
+		return tags;
 	}
 
 	public Collection<Comment> getComments() {
@@ -99,8 +97,4 @@ public class Review {
 		tags.remove(tagToRemove);
 	}
 
-//	public String getTags() {
-//		// TODO Auto-generated method stub
-//		return null;
-//	}
 }

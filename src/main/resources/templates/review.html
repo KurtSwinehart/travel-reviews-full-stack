@@ -25,7 +25,7 @@
 	</div>
 	
 	<form method="POST">
-		<input name="reviewId" type="hidden" th:value=${review.id}">
+		<input name="reviewId" type="hidden" th:value="${review.id}">
 		<input type="text" name="tagName">
 		<button th:formaction="@{/add-tag}">add tag with HTML forms</button>
 	</form>
@@ -50,14 +50,14 @@
 				<input type="text" name="content"/>
 		</section>
 		<section>
-			<input type="hidden" th:value="${reviewsModel.id}" name="reviewId"/>
+			<input type="hidden" th:value="${review.id}" name="reviewId"/>
 		</section>
 		<section>
 			<button th:formaction = "@{/add-comment}">Add Comment</button>
 		</section>
 		</form>
 		
-		<div th:each="comment: ${reivewsModel.comments}">
+		<div th:each="comment: ${review.comments}">
 			<h5><span th:text="${comment.author}">Commenter</span> says...</h5>
 			<p th:text="${comment.content}"></p>
 		</div>

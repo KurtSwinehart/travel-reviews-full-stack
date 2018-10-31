@@ -20,6 +20,19 @@ public class TagController {
 	@Resource
 	ReviewRepository reviewRepo;
 
+	@RequestMapping("/show-tags")
+	public String findAllTags(Model model) {
+		model.addAttribute("tags", tagRepo.findAll());
+		return "tagsTemplate";
+	}
+
+	@RequestMapping("/tag")
+	public String findOneTag(@RequestParam(value = "id") Long id, Model model) {
+		Optional<Tag> tag = tagRepo.findById(id);
+		model.addAttribute("tags", tag.get());
+		return "tagTemplate";
+	}
+
 	// Can add tag with HTML forms
 	@RequestMapping("/add-tag")
 	public String addTag(@RequestParam(value = "reviewId") Long reviewId, String tagName) {

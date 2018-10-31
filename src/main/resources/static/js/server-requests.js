@@ -13,7 +13,7 @@ xhr.onreadystatechange = function(){
 	}
 }
 
-tagAddButton.addEventListerer('click', function(){
+tagAddButton.addEventListener('click', function(){
 	postTags(tagAddInput.value);
 	tagAddInput.value = "";
 })
@@ -34,5 +34,4 @@ function postTags(tagName){
 function removeTags(tagName){
 	xhr.open('POST', 'tags/remove/' + tagName, true);
 	xhr.send();
-}
 }
