@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmnls:th="http://www.thymeleaf.org">
+<head>
+	<title>reviews</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="./css/layout.css">
+	<link rel="stylesheet" type="text/css" href="./css/style.css">
+</head>
+<body>
+	<main id="container"> 
+		<header id="header">
+                <h1>All Tags</h1>
+            </header>
+
+<div class="grid-container">
+    <ul>
+        <li th:each="tag: ${tags}">
+            <a th:href="@{/tag(id=${tag.id})}" th:text="${tag.name}"></a>
+        </li>
+    </ul>
+    <img id="travelPic" src ="./images/travel1.jpg">
+</div>
+</main>
+                
+<footer id="footer">
+    <ul>
+        <li> <a href="http://localhost:8080/show-reviews">Show All Reviews</a></li>
+    </ul>
+</footer>
+                
+</body>
+</html>
