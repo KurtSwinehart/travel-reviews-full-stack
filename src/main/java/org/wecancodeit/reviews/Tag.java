@@ -32,14 +32,13 @@ public class Tag {
 	}
 
 	public Tag() {
-
 	}
 
 	public Tag(String description) {
 		this.description = description;
 	}
 
-	// selected just the description hashCode or equals, not sure if this was
+	// selected just the 'description' hashCode or equals, not sure if this was
 	// correct
 	@Override
 	public int hashCode() {
@@ -63,6 +62,12 @@ public class Tag {
 				return false;
 		} else if (!description.equals(other.description))
 			return false;
+		return true;
+	}
+
+	// generated when "contains" was red on TagController
+	// @RequestMapping("/add-tag") section
+	public boolean contains(Tag existing) {
 		return true;
 	}
 

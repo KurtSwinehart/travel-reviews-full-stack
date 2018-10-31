@@ -1,6 +1,8 @@
 package org.wecancodeit.reviews;
 
+import java.util.Arrays;
 import java.util.Collection;
+import java.util.HashSet;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -9,6 +11,8 @@ import javax.persistence.Lob;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 public class Review {
@@ -27,12 +31,15 @@ public class Review {
 	private String image;
 	private Tag tag;
 
+	@JsonIgnore
 	@ManyToOne
 	private Category category;
 
+	@JsonIgnore
 	@ManyToMany
 	private Collection<Tag> tags;
 
+	@JsonIgnore
 	@OneToMany(mappedBy = "review")
 	private Collection<Comment> comments;
 
@@ -73,13 +80,13 @@ public class Review {
 
 	}
 
-	public Review(String name, String resortOptions, String content, String image, Category category, Tag tag) {
+	public Review(String name, String resortOptions, String content, String image, Category category, Tag... tags) {
 		this.name = name;
 		this.resortOptions = resortOptions;
 		this.content = content;
 		this.image = image;
 		this.category = category;
-		this.tag = tag;
+		this.tags = new HashSet<>(Arrays.asList(tags));
 	}
 
 	// allowing the collection to add this tag we created in our form

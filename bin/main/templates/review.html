@@ -1,9 +1,10 @@
 <!DOCTYPE html>
-<html xmnls:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
 	<title>A Review</title>
 	<meta charset="utf-8">
-	<link rel="stylesheet" type="text/css" href="./css/review.css">
+	<link rel="stylesheet" type="text/css" href="./css/layout.css">
+	<link rel="stylesheet" type="text/css" href="./css/style.css">
 </head>
 <body>
 	<main id="container"> 
@@ -24,16 +25,16 @@
 	</div>
 	
 	<form method="POST">
-		<input name="reviewId" type="hidden" th:value=${review.id}"/>
-		<input type="text" name="tagName"/>
+		<input name="reviewId" type="hidden" th:value=${review.id}">
+		<input type="text" name="tagName">
 		<button th:formaction="@{/add-tag}">add tag with HTML forms</button>
 	</form>
 	
 	<form method="POST">
-		<input name="reviewId" type="hidden" th:value=${review.id}"/>
+		<input name="reviewId" type="hidden" th:value="${review.id}">
 		<ul>
-			<li th:each="tag: ${review.tags}"><span th:text=${tag.description}"></span>	
-			<button id="x" name="tagId" th:value=${tag.id}" th:formaction="@{remove-tag-button}">&times;</button>	
+			<li th:each="tag: ${review.tags}"><span th:text="${tag.description}"></span>	
+			<button id="x" name="tagId" th:value="${tag.id}" th:formaction="@{remove-tag-button}">&times;</button>	
 		</ul>
 	</form>
 	
