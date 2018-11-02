@@ -6,9 +6,12 @@
 
 <body>
 
-<div class="container">
+<main id="container"> 
 <header>
 	<h1>Tags Page</h1>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="./css/layout.css">
+	<link rel="stylesheet" type="text/css" href="./css/style.css">
 </header>
 
 <div>
@@ -29,11 +32,19 @@
 			<li th:if="${tagsModel.size() !=0}" th:each="tag: ${tagsModel}">
 			  <a th:href="@{/tag(id=${tag.id})}" th:text="${tag.description}"></a>
 		</ul>
+		<img id="travelPic" src ="./images/travel1.jpg">
 	</section>
 </div>
 
 
 </div> <!-- container -->
+</main>
+<footer id="footer">
+		<ul>
+		<li> <a href="http://localhost:8080/show-categories">Back to Categories</a></li>
+		<li> <a href="http://localhost:8080/show-reviews">Show All Reviews</a></li>
+	</ul>
+	</footer>
 
 	<script src = "./js/server-requests.js"></script>
 </body>

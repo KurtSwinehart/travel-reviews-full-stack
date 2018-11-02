@@ -14,11 +14,12 @@
 
 <!-- about minute 30 or so of Mod9 video if needing to create multiple divs below-->	
 <div class="grid-container" th:each = "review: ${reviews}">
-	<p id="ReviewName" th:text = "${review.name}"></p>
+	<h2 id="ReviewName" th:text = "${review.name}"></h2>
 	<p th:utext = "${review.resortOptions}"></p>
 	<p th:text = "${review.content}"></p>
-	<img th:src = "${review.image}"></img>
-	
+	<img th:src = "${review.image}">
+
+<section id="tags">
 	<h3>Current Tags associated with this review</h3>
 	<div th:each="tag: ${review.tags}">
 		<a th:href="@{/tag(id=${tag.id})}" th:text="${tag.description}"></a>
@@ -32,15 +33,18 @@
 	
 	<form method="POST">
 		<input name="reviewId" type="hidden" th:value="${review.id}">
+		<h3>Delete any tags?</h3>
 		<ul>
 			<li th:each="tag: ${review.tags}"><span th:text="${tag.description}"></span>	
-			<button id="x" name="tagId" th:value="${tag.id}" th:formaction="@{remove-tag-button}">&times;</button>	
-		</ul>
-	</form>
-	
+				<button id="x" name="tagId" th:value="${tag.id}" th:formaction="@{remove-tag-button}">&times;</button>	
+			</ul>
+		</form>
+	</section>
+		
 	
 	<div class="add-comment">
 		<form method="POST">
+			<h3>Comments</h3>
 		<section>
 			<label>Enter your name: </label>
 			<input type="text" name="author"/>
@@ -53,7 +57,7 @@
 			<input type="hidden" th:value="${review.id}" name="reviewId"/>
 		</section>
 		<section>
-			<button th:formaction = "@{/add-comment}">Add Comment</button>
+			<button id="x" th:formaction = "@{/add-comment}">Add Comment</button>
 		</section>
 		</form>
 		
@@ -67,8 +71,9 @@
 	</main>
 <footer id="footer">
 	<ul>
-	<li> <a href="http://localhost:8080/show-categories">Back to Categories</a></li>
+	<li> <a href="http://localhost:8080/show-categories">Show All Categories</a></li>
 	<li> <a href="http://localhost:8080/show-reviews">Show All Reviews</a></li>
+	<li> <a href="http://localhost:8080/all-tags-ajax">Show All Tags</a></li>
 </ul>
 </footer>
 

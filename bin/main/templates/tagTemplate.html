@@ -13,18 +13,20 @@
             </header>
 
 <div class="grid-container" th:each = "tag: ${tags}">
+    <section id="current-reviews">
     <p id="TagName" th:text = "${tag.description}"></p>
-    
     <h3>Current revies associated with this tag</h3>
-	<div th:each="review: ${tag.reviews}">
+	<div id="reviewsOnTagPage" th:each="review: ${tag.reviews}">
 		<a th:href="@{/review(id=${review.id})}" th:text="${review.name}"></a>
 	</div>
-    <img id="travelPic" src ="./images/travel1.jpg">
+</section>
+<img id="travelPic" src ="./images/travel1.jpg">
 </div>
 </main>
                 
 <footer id="footer">
     <ul>
+        <li> <a href="http://localhost:8080/show-categories">Show All Categories</a></li>
         <li> <a href="http://localhost:8080/show-reviews">Show All Reviews</a></li>
         <li> <a href="http://localhost:8080/all-tags-ajax">Show All Tags</a></li>
     </ul>

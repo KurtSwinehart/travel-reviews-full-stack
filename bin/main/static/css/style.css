@@ -21,7 +21,7 @@
 div li{
     list-style-type: none;
     padding-top: 2rem;
-    font-size: 2rem;
+    font-size: 1.4rem;
   }
 
   div li a {
@@ -37,7 +37,45 @@ div li a:hover {
     font-size: 2rem;
   }
 
-  
+ #tags a{
+  text-decoration: none;
+  color: black;
+  line-height: 1.6rem;
+  font-size: 1.2rem;
+ }
+
+ #tags a:hover{
+  color: white;
+}
+
+li span{
+  text-decoration: none;
+  color: black;
+  /* line-height: 1em; */
+  font-size: 1.2rem;
+}
+
+ #reviewsOnTagPage a{
+  text-decoration: none;
+  color: black;
+  font-size: 1.4rem;
+  line-height: 2em;
+ }
+
+ 
+ #reviewsOnTagPage a:hover{
+  color: white;
+ }
+
+ #tags li{
+   font-size: 1rem;
+   padding-left: none;
+ }
+
+ #current-reviews p {
+  font-size: 1.5rem;
+ }
+
 #footer a{
     font-size: 1.25em;
     text-decoration: none;
