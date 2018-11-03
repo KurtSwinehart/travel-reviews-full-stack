@@ -8,12 +8,12 @@
   #header {
     display: flex; 
     padding-bottom: 1.5rem;
-    /* align-items: center;  */
-    height: 40px;
-    /* justify-content: center; */
+    align-content: center; 
+    height: 60px;
+    justify-content: center;
   }
 
-  #header h1 {
+  header h1 {
     align-items: center; 
     padding-left: 19px;
   }
@@ -25,7 +25,8 @@
   }
 
   .grid-container p{
-    padding-right: 25px;
+    padding-right: 3rem;
+    text-align: justify;
   }
 
   #ReviewName{
@@ -50,16 +51,53 @@ body img {
 
   #travelPic {
     display: block;
-      margin-top: 2em;
+      margin-top: 4em;
       height: 400px;
       width: 500px;
     }
 
 #tags a{
   display: grid;
-  padding-left: 35px;
-  text-overflow: inherit;
-  text-align: left;
+  padding-left: 37px;
+  padding-bottom: 1em;
+  text-overflow: inherit;  
+}
+
+#reviewsOnTagPage{
+  height: 30px;
+  padding-left: 7rem;
+}
+
+#review-list{
+  padding-left: 7rem;
+}
+
+.tags-list a{
+  padding-left: 7rem;
+}
+
+#TagName{
+  padding-left: 7rem;
+}
+
+.tags-list.img{
+  padding-top: 8rem;
+}
+
+.add-comment form{  
+  line-height: 2em; 
+}
+
+.add-tag{
+  display: flex;
+  height: 30px;
+  justify-content: center;
+}
+
+.remove-tag{
+  display: flex;
+  height: 30px;
+  justify-content: center;
 }
 
 #current-reviews{
@@ -75,9 +113,18 @@ body img {
 }
 
 #footer {
-    display: flex;
+    display: inline;
     height: 50px;
     margin: 1rem auto;
     max-width: 90%;
     width: 1200px;
 }
+
+#footer li{
+  list-style-type: none;
+ text-align: center;
+}
+
+/* #footer ul a{
+
+} */

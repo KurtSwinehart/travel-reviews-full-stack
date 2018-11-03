@@ -14,7 +14,7 @@
 	</header>
 
 <div class="grid-container">
-	<ul>
+	<ul id="review-list">
 		<li th:each="category: ${categories}">
 		<a th:href="@{/category(id=${category.id})}" th:text="${category.name}"></a>
 	</li>
@@ -26,7 +26,8 @@
 <footer id="footer">
 		<ul>
 		<li> <a href="http://localhost:8080/show-reviews">Show All Reviews</a></li>
-		<li> <a href="http://localhost:8080/all-tags-ajax">Show All Tags</a></li>
+		<li> <a href="http://localhost:8080/show-tags">Show All Tags</a></li>
+        <li> <a href="http://localhost:8080/all-tags-ajax">Show AJAX Tags</a></li>
 	</ul>
 	</footer>
 

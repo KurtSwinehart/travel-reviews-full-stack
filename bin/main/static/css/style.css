@@ -2,15 +2,23 @@
     background-color:  #939faa;
 }  
 
-#header h1 {
+header h1 {
     font-family: 'Michroma', sans-serif;
     font-size: 30px;
+    text-align: center;
 }    
 
 
 #container h2{
-    font-size: 30px;
-    margin: 3rem;
+    font-size: 40px;
+    display: inline;
+    padding-bottom: 1.5rem;
+    text-align: center; 
+    align-content: center;
+  }
+
+  #container h3{
+    font-size: 25px;
   }
 
   body {
@@ -34,7 +42,7 @@ div li a:hover {
   }
 
   #ReviewName {
-    font-size: 2rem;
+    font-size: 5rem;
   }
 
  #tags a{
@@ -53,13 +61,14 @@ li span{
   color: black;
   /* line-height: 1em; */
   font-size: 1.2rem;
+  padding-inline-start: 0px;
 }
 
  #reviewsOnTagPage a{
   text-decoration: none;
   color: black;
   font-size: 1.4rem;
-  line-height: 2em;
+  line-height: 1em;
  }
 
  

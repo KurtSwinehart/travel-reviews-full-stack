@@ -1,20 +1,20 @@
 <html>
 
 <head>
-	<title>Tags Page</title>
+	<title>AJAX Tags</title>
 </head>
 
 <body>
 
 <main id="container"> 
-<header>
-	<h1>Tags Page</h1>
+<header id="header">
+	<h1>AJAX Tags</h1>
 	<meta charset="utf-8">
 	<link rel="stylesheet" type="text/css" href="./css/layout.css">
 	<link rel="stylesheet" type="text/css" href="./css/style.css">
 </header>
 
-<div>
+<div class="grid-container">
 	<section class="add-tag">
 		<input type="text"/>
 		<button>Submit Tag</button>
@@ -32,8 +32,8 @@
 			<li th:if="${tagsModel.size() !=0}" th:each="tag: ${tagsModel}">
 			  <a th:href="@{/tag(id=${tag.id})}" th:text="${tag.description}"></a>
 		</ul>
-		<img id="travelPic" src ="./images/travel1.jpg">
 	</section>
+	<img id="travelPic" src ="./images/travel2.jpg">
 </div>
 
 
@@ -41,8 +41,9 @@
 </main>
 <footer id="footer">
 		<ul>
-		<li> <a href="http://localhost:8080/show-categories">Back to Categories</a></li>
+		<li> <a href="http://localhost:8080/show-categories">Show All Categories</a></li>
 		<li> <a href="http://localhost:8080/show-reviews">Show All Reviews</a></li>
+		<li> <a href="http://localhost:8080/show-tags">Show All Tags</a></li>
 	</ul>
 	</footer>
 

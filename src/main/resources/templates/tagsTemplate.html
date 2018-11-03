@@ -13,12 +13,12 @@
             </header>
 
 <div class="grid-container">
-    <ul>
+    <ul id="review-list">
         <li th:each="tag: ${tags}">
             <a th:href="@{/tag(id=${tag.id})}" th:text="${tag.description}"></a>
         </li>
     </ul>
-    <img id="travelPic" src ="./images/travel1.jpg">
+    <img id="travelPic" src ="./images/travel3.jpg">
 </div>
 </main>
                 
@@ -26,6 +26,7 @@
     <ul>
         <li> <a href="http://localhost:8080/show-categories">Show All Categories</a></li>
         <li> <a href="http://localhost:8080/show-reviews">Show All Reviews</a></li>
+        <li> <a href="http://localhost:8080/all-tags-ajax">Show AJAX Tags</a></li>
     </ul>
 </footer>
                 
